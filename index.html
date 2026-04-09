@@ -1,321 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Will You Be My Valentine?</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(to right, #ffafbd, #ffc3a0);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-        }
 
-        .container {
-            text-align: center;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<title>Happy Birthday🫶🏽🪷</title>
 
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-top: 20vh;
-            padding: 0 20px;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
 
-        .message {
-            font-size: 1.5rem;
-            color: white;
-            margin-top: 10px;
-            font-weight: bold;
-            display: none;
-        }
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
 
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 20px;
-            transition: 0.3s;
-            touch-action: none;
-        }
+h1 {
+    font-size: 2.3rem;
+    color: white;
+    margin-top: 20vh;
+}
 
-        #yesBtn {
-            background-color: #ff4d6d;
-            color: white;
-            position: relative;
-        }
+.message {
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 10px;
+    display: none;
+}
 
-        #noBtn {
-            background-color: white;
-            color: #ff4d6d;
-            position: fixed;
-        }
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px;
+}
 
-        .hidden {
-            display: none;
-        }
+#yesBtn {
+    background-color: #ff6b81;
+    color: white;
+}
 
-        /* Celebration Screen */
-        .celebration {
-            display: none;
-            text-align: center;
-            animation: fadeIn 2s ease-in-out forwards;
-            padding: 20px;
-        }
+#noBtn {
+    background-color: white;
+    color: #ff6b81;
+    position: fixed;
+}
 
-        .celebration h2 {
-            font-size: 2rem;
-            color: white;
-            padding: 0 20px;
-        }
+.hidden {
+    display: none;
+}
 
-        /* Gift Box Placeholder */
-        .gift-box {
-            width: 200px;
-            height: 200px;
-            background: white;
-            border-radius: 20px;
-            margin: 30px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: bounce 2s infinite;
-            max-width: 80vw;
-        }
+/* Celebration */
+.celebration {
+    display: none;
+    text-align: center;
+    animation: fadeIn 2s forwards;
+}
 
-        .gift-box video {
-            width: 100%;
-            max-width: 300px;
-            pointer-events: none;
-        }
+.celebration h2 {
+    font-size: 2rem;
+    color: white;
+}
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+/* Gift box */
+.gift-box {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 20px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    animation: bounce 2s infinite;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+.gift-box video, .gift-box img {
+    width: 100%;
+    border-radius: 20px;
+}
 
-        /* Floating hearts & roses */
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            animation: float 5s linear infinite;
-            pointer-events: none;
-        }
+/* Animations */
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
 
-        @keyframes float {
-            from {
-                transform: translateY(100vh);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-                margin-top: 15vh;
-            }
+.float {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp 5s linear infinite;
+}
 
-            .message {
-                font-size: 1.2rem;
-            }
-
-            button {
-                padding: 12px 25px;
-                font-size: 16px;
-                margin: 15px;
-            }
-
-            .celebration h2 {
-                font-size: 1.5rem;
-            }
-
-            .gift-box {
-                width: 150px;
-                height: 150px;
-                font-size: 3rem;
-            }
-
-            .heart {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-                margin-top: 10vh;
-            }
-
-            .message {
-                font-size: 1rem;
-            }
-
-            button {
-                padding: 10px 20px;
-                font-size: 14px;
-                margin: 10px;
-            }
-
-            .celebration h2 {
-                font-size: 1.3rem;
-            }
-
-            .gift-box {
-                width: 120px;
-                height: 120px;
-                font-size: 2.5rem;
-            }
-
-            .heart {
-                font-size: 18px;
-            }
-        }
-    </style>
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="container" id="main">
-        <h1>Will You Be My Valentine? 💖</h1>
-        <div class="message" id="trickMessage">Find the REAL Yes button! 😏</div>
-        <button id="yesBtn">Yes 💘</button>
-        <button id="noBtn">No 😢</button>
+
+<div class="container" id="main">
+    <h1>wanna travel Europe together someday?🤔</h1>
+    <div class="message" id="trickMessage">Try finding the REAL surprise button smarty😔</div>
+
+    <button id="yesBtn">Big YES😎</button>
+    <button id="noBtn">NO☹️</button>
+</div>
+
+<div class="celebration" id="celebrate">
+    <h2>HAPPY BIRTHDAY Munchkin!!!🫂💌</h2>
+
+    <!-- Gift Placeholder -->
+    <div class="gift-box">
+        <video autoplay loop muted playsinline>
+            <source src="chroma-keyed-video.webm" type="video/webm">
+        </video>
     </div>
+</div>
 
-    <div class="celebration" id="celebrate">
-        <h2>SHE SAID YES!!! 😭💖🌹</h2>
-        <!-- Gift Placeholder -->
-        <div class="gift-box">
-            <video autoplay loop muted playsinline style="width:300px; pointer-events:none;">
-                <source src="chroma-keyed-video.webm" type="video/webm">
-            </video>
-        </div>
-    </div>
+<!-- Background Sound -->
+<video id="bgSound" style="display:none;" loop>
+    <source src="cat.mp4" type="video/mp4">
+</video>
 
-    <video id="bgSound" style="display:none;" loop>
-        <source src="cat.mp4" type="video/mp4">
-    </video>
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const celebrate = document.getElementById("celebrate");
+const main = document.getElementById("main");
+const trickMessage = document.getElementById("trickMessage");
 
-    <script>
-        const noBtn = document.getElementById("noBtn");
-        const yesBtn = document.getElementById("yesBtn");
-        const celebrate = document.getElementById("celebrate");
-        const main = document.getElementById("main");
-        const trickMessage = document.getElementById("trickMessage");
-        
-        let attempts = 0;
-        let fakeYesClicked = false;
+let attempts = 0;
+let fakeYesClicked = false;
 
-        // Handle both mouse and touch events
-        function moveNoButton() {
-            if (!fakeYesClicked) return; // Only move after fake yes is clicked
-            
-            attempts++;
-            
-            // After 8 attempts, convert No button to Yes
-            if (attempts >= 8) {
-                noBtn.textContent = "Yes 💘";
-                noBtn.style.backgroundColor = "#ff4d6d";
-                noBtn.style.color = "white";
-                // Remove the move events
-                noBtn.removeEventListener("mouseover", moveNoButton);
-                noBtn.removeEventListener("touchstart", handleTouch);
-                // Make it clickable
-                noBtn.style.cursor = "pointer";
-                return;
-            }
-            
-            // Get button dimensions
-            const btnWidth = noBtn.offsetWidth;
-            const btnHeight = noBtn.offsetHeight;
-            
-            // Add padding to keep button away from edges
-            const padding = 20;
-            
-            // Calculate safe boundaries
-            const maxX = window.innerWidth - btnWidth - padding;
-            const maxY = window.innerHeight - btnHeight - padding;
-            
-            // Generate random position within boundaries
-            const x = Math.max(padding, Math.random() * maxX);
-            const y = Math.max(padding, Math.random() * maxY);
-            
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
-        }
+// Move NO button
+function moveNoButton() {
+    if (!fakeYesClicked) return;
 
-        function handleTouch(e) {
-            e.preventDefault();
-            moveNoButton();
-        }
+    attempts++;
 
-        // Mouse event for desktop
-        noBtn.addEventListener("mouseover", moveNoButton);
-        
-        // Touch events for mobile
-        noBtn.addEventListener("touchstart", handleTouch);
+    if (attempts >= 8) {
+        noBtn.textContent = "YESS🫂";
+        noBtn.style.backgroundColor = "#ff6b81";
+        noBtn.style.color = "white";
+        return;
+    }
 
-        // Click event for No button (when it becomes Yes)
-        noBtn.addEventListener("click", () => {
-            if (attempts >= 8) {
-                showCelebration();
-            }
-        });
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
 
-        // FAKE YES button - first click
-        yesBtn.addEventListener("click", () => {
-            if (!fakeYesClicked) {
-                fakeYesClicked = true;
-                yesBtn.classList.add("hidden");
-                trickMessage.style.display = "block";
-            }
-        });
+    const padding = 20;
+    const maxX = window.innerWidth - btnWidth - padding;
+    const maxY = window.innerHeight - btnHeight - padding;
 
-        function showCelebration() {
-            main.style.display = "none";
-            celebrate.style.display = "block";
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-            // Play sound
-            let sound = document.getElementById("bgSound");
-            sound.volume = 0.5;
-            sound.play().catch(e => console.log("Audio play failed:", e));
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
 
-            // Create floating hearts (fewer on mobile for performance)
-            const isMobile = window.innerWidth <= 768;
-            const heartCount = isMobile ? 40 : 70;
-            
-            for (let i = 0; i < heartCount; i++) {
-                let heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.innerHTML = "🌹🐱💖";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                document.body.appendChild(heart);
-            }
-        }
-    </script>
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveNoButton();
+});
+
+// NO becomes YES after attempts
+noBtn.addEventListener("click", () => {
+    if (attempts >= 8) {
+        showCelebration();
+    }
+});
+
+// Fake YES first
+yesBtn.addEventListener("click", () => {
+    if (!fakeYesClicked) {
+        fakeYesClicked = true;
+        yesBtn.classList.add("hidden");
+        trickMessage.style.display = "block";
+    }
+});
+
+function showCelebration() {
+    main.style.display = "none";
+    celebrate.style.display = "block";
+
+    // Play music
+    let sound = document.getElementById("bgSound");
+    sound.volume = 0.5;
+    sound.play();
+
+    // Floating birthday emojis
+    for (let i = 0; i < 60; i++) {
+        let el = document.createElement("div");
+        el.classList.add("float");
+        el.innerHTML = "🍰🩷😛";
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(el);
+    }
+
+    // Optional message popup
+    setTimeout(() => {
+        alert("Happiest Birthday 🥸🫶🏽!have the best day(you will cause im with you)");
+    }, 1000);
+}
+</script>
+
 </body>
 </html>
