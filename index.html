@@ -81,7 +81,6 @@ button{
 #noBtn {
     background: #1565c0;
     color: white;
-    position: fixed;
     z-index: 100;
     width: 180px;
 }
@@ -93,22 +92,6 @@ button{
 
 .hidden{
     display:none !important;
-}
-
-/* Arrow pointing to No button */
-.arrow {
-    position: fixed;
-    font-size: 28px;
-    color: #ffeb3b;
-    z-index: 101;
-    text-shadow: 0 0 10px #ffeb3b;
-    display: none;
-    animation: arrowPulse 1s infinite;
-}
-
-@keyframes arrowPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
 }
 
 /* Celebration */
@@ -204,9 +187,6 @@ button{
     <source src="cat.mp4" type="video/mp4">
 </video>
 
-<!-- Arrow -->
-<div id="arrow" class="arrow">→</div>
-
 <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
@@ -214,7 +194,6 @@ button{
     const main = document.getElementById("main");
     const trickMessage = document.getElementById("trickMessage");
     const customAlert = document.getElementById("customAlert");
-    const arrow = document.getElementById("arrow");
 
     let attempts = 0;
     let fakeYesClicked = false;
@@ -230,31 +209,28 @@ button{
             return;
         }
 
-        const padding = 30;
-        const btnW = 180;
-        const btnH = 55;
+        // Use the button's actual rendered size so it never gets clipped
+        const rect = noBtn.getBoundingClientRect();
+        const btnW = rect.width;
+        const btnH = rect.height;
 
-        const maxX = window.innerWidth - btnW - padding * 2;
-        const maxY = window.innerHeight - btnH - padding * 2;
+        // First time it dodges: switch from normal flex flow to fixed
+        // positioning, seeded at its current spot so it doesn't jump.
+        if (noBtn.style.position !== "fixed") {
+            noBtn.style.position = "fixed";
+            noBtn.style.left = `${rect.left}px`;
+            noBtn.style.top = `${rect.top}px`;
+        }
 
-        const x = padding + Math.random() * Math.max(0, maxX);
-        const y = padding + Math.random() * Math.max(0, maxY);
+        const padding = 20;
+        const maxX = Math.max(0, window.innerWidth - btnW - padding * 2);
+        const maxY = Math.max(0, window.innerHeight - btnH - padding * 2);
+
+        const x = padding + Math.random() * maxX;
+        const y = padding + Math.random() * maxY;
 
         noBtn.style.left = `${x}px`;
         noBtn.style.top = `${y}px`;
-
-        // Show arrow pointing to new position
-        showArrow(x + btnW/2, y);
-    }
-
-    function showArrow(targetX, targetY) {
-        arrow.style.display = "block";
-        arrow.style.left = `${targetX - 30}px`;
-        arrow.style.top = `${targetY - 40}px`;
-        
-        setTimeout(() => {
-            arrow.style.display = "none";
-        }, 1200);
     }
 
     noBtn.addEventListener("touchstart", (e) => {
@@ -301,8 +277,6 @@ button{
             setTimeout(() => customAlert.style.display = "none", 2800);
         }, 600);
     }
-
-    noBtn.style.position = "relative";
 </script>
 
 </body>
