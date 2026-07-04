@@ -14,79 +14,87 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     font-family:Arial, Helvetica, sans-serif;
     background:linear-gradient(135deg,#0d1b2a,#1b263b,#e62429);
+    padding:20px;
 }
 
 .container{
     text-align:center;
-    position:relative;
     width:100%;
-    height:100%;
-    padding:20px;
+    max-width:500px;
     color:white;
 }
 
 h1{
     font-size:2.5rem;
-    margin-top:18vh;
+    margin-bottom:25px;
 }
 
-.subtitle{
+p{
     font-size:1.25rem;
-    margin-top:18px;
     line-height:1.6;
+    margin-bottom:40px;
 }
 
 .message{
     font-size:1.2rem;
-    margin-top:15px;
+    margin:25px 0;
     display:none;
-    color:white;
-}
-
-button{
-    padding:15px 35px;
-    font-size:18px;
-    border:none;
-    border-radius:35px;
-    cursor:pointer;
-    margin:20px;
+    color:#ffeb3b;
     font-weight:bold;
 }
 
-#yesBtn{
-    background:#e62429;
-    color:white;
+.button-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
 }
 
-#yesBtn:hover{
-    transform:scale(1.05);
+button{
+    width:240px;
+    padding:16px 20px;
+    font-size:19px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
-#noBtn{
-    background:#1565c0;
-    color:white;
-    position:fixed;
-    transition:left .2s, top .2s;
+#yesBtn {
+    background: #e62429;
+    color: white;
+}
+
+#yesBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 20px rgba(230,36,41,0.4);
+}
+
+#noBtn {
+    background: #1565c0;
+    color: white;
+    position: fixed;
+    z-index: 100;
 }
 
 .hidden{
-    display:none;
+    display:none !important;
 }
 
 /* Celebration */
-
 .celebration{
     display:none;
     text-align:center;
     animation:fadeIn 1.5s forwards;
     color:white;
+    padding:20px;
 }
 
 .celebration h2{
@@ -94,14 +102,14 @@ button{
 }
 
 .celebration p{
-    margin-top:10px;
-    font-size:1.2rem;
+    margin:15px 0 30px;
+    font-size:1.3rem;
 }
 
 .movie-box{
     width:300px;
     height:300px;
-    margin:30px auto;
+    margin:20px auto;
     background:white;
     border-radius:20px;
     overflow:hidden;
@@ -119,27 +127,21 @@ button{
 }
 
 @keyframes bounce{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-15px);
-    }
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-15px); }
 }
 
 @keyframes fadeIn{
-    from{
-        opacity:0;
-    }
-    to{
-        opacity:1;
-    }
+    from{ opacity:0; }
+    to{ opacity:1; }
 }
 
 .float{
     position:absolute;
     font-size:28px;
     animation:floatUp linear forwards;
+    pointer-events:none;
+    z-index: 50;
 }
 
 @keyframes floatUp{
@@ -148,52 +150,66 @@ button{
         opacity:1;
     }
     to{
-        transform:translateY(-15vh);
+        transform:translateY(-20vh);
         opacity:0;
     }
 }
-</style>
 
+/* Custom Notification */
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(14, 28, 52, 0.95);
+    color: white;
+    padding: 25px 35px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    border: 2px solid #e62429;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container" id="main">
-
-       <h1>Wanna Go Watch Spider-Man With Me? 🕷️🍿</h1>
+    <h1>Wanna Go Watch Spider-Man With Me? 🕷️🍿</h1>
 
     <p>
         Was Wondering..<br><br>
-        Spider-Mans always more fun with a good company(YOU).
-        <br><br>
-        So... would you mind watching it with me?😔
+        Spider-Mans always more fun with a good company (YOU).<br><br>
+        So... would you mind watching it with me? 😔
     </p>
 
     <div class="message" id="trickMessage">
-         😛alelele... wrong button find the right one smartyy
+         😛 alelele... wrong button! Find the right one smarty
     </div>
 
-    <button id="yesBtn">YES! 😼 </button>
-    <button id="noBtn">No ☹️</button>
-
+    <div class="button-container">
+        <button id="yesBtn">YES! 😼</button>
+        <button id="noBtn">No ☹️</button>
+    </div>
 </div>
 
 <div class="celebration" id="celebrate">
-
     <h2>YAY!! A Spider-Man Date! 🕷️❤️</h2>
-
-    <p>
-       Popcorns on me bbg😉
-    </p>
+    <p>Popcorns on me bbg 😉</p>
 
     <div class="movie-box">
-
-        <video id="spidermanVideo" autoplay muted playsinline>
+        <video id="spidermanVideo" autoplay muted playsinline loop>
             <source src="chroma-keyed-video.webm" type="video/webm">
         </video>
-
     </div>
+</div>
 
+<!-- Custom Notification -->
+<div class="notification" id="customAlert">
+    Can't wait till July 30 😼
 </div>
 
 <!-- Music -->
@@ -203,136 +219,99 @@ button{
 
 <script>
     const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const celebrate = document.getElementById("celebrate");
-const main = document.getElementById("main");
-const trickMessage = document.getElementById("trickMessage");
+    const yesBtn = document.getElementById("yesBtn");
+    const celebrate = document.getElementById("celebrate");
+    const main = document.getElementById("main");
+    const trickMessage = document.getElementById("trickMessage");
+    const customAlert = document.getElementById("customAlert");
 
-let attempts = 0;
-let fakeYesClicked = false;
+    let attempts = 0;
+    let fakeYesClicked = false;
 
-// Move the NO button
-function moveNoButton() {
+    function moveNoButton() {
+        if (!fakeYesClicked) return;
 
-    if (!fakeYesClicked) return;
+        attempts++;
 
-    attempts++;
+        // Changed to 7 attempts
+        if (attempts >= 7) {
+            noBtn.textContent = "YES! 💌";
+            noBtn.style.backgroundColor = "#e62429";
+            noBtn.removeEventListener("mouseover", moveNoButton);
+            noBtn.removeEventListener("touchstart", handleTouch);
+            return;
+        }
 
-    // After enough attempts, turn NO into YES
-    if (attempts >= 8) {
+        const padding = 20; // keeps button fully inside screen
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
 
-        noBtn.textContent = "YES!💌 ";
-        noBtn.style.backgroundColor = "#e62429";
-        noBtn.style.color = "white";
+        const maxX = window.innerWidth - btnWidth - padding;
+        const maxY = window.innerHeight - btnHeight - padding;
 
-        noBtn.removeEventListener("mouseover", moveNoButton);
-        noBtn.removeEventListener("touchstart", handleTouch);
+        const x = padding + Math.random() * maxX;
+        const y = padding + Math.random() * maxY;
 
-        return;
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
     }
 
-    const padding = 20;
-
-    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
-
-function handleTouch() {
-    moveNoButton();
-}
-
-noBtn.addEventListener("mouseover", moveNoButton);
-noBtn.addEventListener("touchstart", handleTouch);
-
-// Fake YES button
-yesBtn.addEventListener("click", () => {
-
-    if (!fakeYesClicked) {
-
-        fakeYesClicked = true;
-
-        yesBtn.classList.add("hidden");
-
-        trickMessage.style.display = "block";
+    function handleTouch() {
+        moveNoButton();
     }
 
-});
+    noBtn.addEventListener("mouseover", moveNoButton);
+    noBtn.addEventListener("touchstart", handleTouch);
 
-// Real YES button
-noBtn.addEventListener("click", () => {
-
-    if (attempts >= 8) {
-        showCelebration();
-    }
-
-});
-
-function showCelebration() {
-
-    main.style.display = "none";
-    celebrate.style.display = "block";
-
-    // Play music
-    const sound = document.getElementById("bgSound");
-    sound.currentTime = 0;
-    sound.volume = 0.5;
-
-    sound.play().catch(() => {});
-
-    // Force video to keep looping
-    const video = document.getElementById("spidermanVideo");
-
-    video.play().catch(() => {});
-
-    video.addEventListener("ended", () => {
-        video.currentTime = 0;
-        video.play();
+    yesBtn.addEventListener("click", () => {
+        if (!fakeYesClicked) {
+            fakeYesClicked = true;
+            yesBtn.classList.add("hidden");
+            trickMessage.style.display = "block";
+        }
     });
 
-    // Floating Spider-Man emojis
-    const emojis = [
-        "🕷️",
-        "🕸️",
-        "❤️",
-        "🍿",
-        "🎬",
-        "✨",
-        "🥰"
-    ];
+    noBtn.addEventListener("click", () => {
+        if (attempts >= 7) {
+            showCelebration();
+        }
+    });
 
-    for (let i = 0; i < 90; i++) {
+    function showCelebration() {
+        main.style.display = "none";
+        celebrate.style.display = "block";
 
-        let el = document.createElement("div");
+        const sound = document.getElementById("bgSound");
+        const video = document.getElementById("spidermanVideo");
 
-        el.classList.add("float");
+        sound.currentTime = 0;
+        sound.volume = 0.6;
+        sound.play().catch(() => {});
 
-        el.innerHTML =
-            emojis[Math.floor(Math.random() * emojis.length)];
+        video.play().catch(() => {});
 
-        el.style.left = Math.random() * 100 + "vw";
+        const emojis = ["🕷️", "🕸️", "❤️", "🍿", "🎬", "✨", "🥰"];
+        for (let i = 0; i < 80; i++) {
+            let el = document.createElement("div");
+            el.classList.add("float");
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * 100 + "vw";
+            el.style.animationDuration = (Math.random() * 3.5 + 2.5) + "s";
+            el.style.fontSize = (Math.random() * 28 + 24) + "px";
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 7000);
+        }
 
-        el.style.animationDuration =
-            (Math.random() * 3 + 2) + "s";
-
-        el.style.fontSize =
-            (Math.random() * 20 + 22) + "px";
-
-        document.body.appendChild(el);
+        setTimeout(() => {
+            customAlert.style.display = "block";
+            setTimeout(() => customAlert.style.display = "none", 2800);
+        }, 600);
     }
 
-    setTimeout(() => {
-
-        alert("Can't wait till july 30 😼");
-
-    }, 800);
-
-}
+    // Ensure NO button starts visible
+    noBtn.style.position = "relative";
+    noBtn.style.left = "auto";
+    noBtn.style.top = "auto";
 </script>
 
 </body>
