@@ -4,154 +4,205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Happy Birthday🫶🏽🪷</title>
+<title>Spider-Man Movie Date 🕷️🍿❤️</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-    text-align: center;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0d1b2a,#1b263b,#e62429);
 }
 
-h1 {
-    font-size: 2.3rem;
-    color: white;
-    margin-top: 20vh;
+.container{
+    text-align:center;
+    position:relative;
+    width:100%;
+    height:100%;
+    padding:20px;
+    color:white;
 }
 
-.message {
-    font-size: 1.3rem;
-    color: white;
-    margin-top: 10px;
-    display: none;
+h1{
+    font-size:2.5rem;
+    margin-top:18vh;
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 20px;
+.subtitle{
+    font-size:1.25rem;
+    margin-top:18px;
+    line-height:1.6;
 }
 
-#yesBtn {
-    background-color: #ff6b81;
-    color: white;
+.message{
+    font-size:1.2rem;
+    margin-top:15px;
+    display:none;
+    color:white;
 }
 
-#noBtn {
-    background-color: white;
-    color: #ff6b81;
-    position: fixed;
-    transition: left 0.2s, top 0.2s; /* smooth movement */
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:35px;
+    cursor:pointer;
+    margin:20px;
+    font-weight:bold;
 }
 
-.hidden {
-    display: none;
+#yesBtn{
+    background:#e62429;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.05);
+}
+
+#noBtn{
+    background:#1565c0;
+    color:white;
+    position:fixed;
+    transition:left .2s, top .2s;
+}
+
+.hidden{
+    display:none;
 }
 
 /* Celebration */
-.celebration {
-    display: none;
-    text-align: center;
-    animation: fadeIn 2s forwards;
+
+.celebration{
+    display:none;
+    text-align:center;
+    animation:fadeIn 1.5s forwards;
+    color:white;
 }
 
-.celebration h2 {
-    font-size: 2rem;
-    color: white;
+.celebration h2{
+    font-size:2.6rem;
 }
 
-/* Gift box */
-.gift-box {
-    width: 200px;
-    height: 200px;
-    background: white;
-    border-radius: 20px;
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: bounce 2s infinite;
+.celebration p{
+    margin-top:10px;
+    font-size:1.2rem;
 }
 
-.gift-box video {
-    width: 100%;
-    border-radius: 20px;
+.movie-box{
+    width:300px;
+    height:300px;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:bounce 2s infinite;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-/* Animations */
-@keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+.movie-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.float {
-    position: absolute;
-    font-size: 24px;
-    animation: floatUp 5s linear infinite;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(100vh);
-        opacity: 1;
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
     }
-    to {
-        transform: translateY(-10vh);
-        opacity: 0;
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.float{
+    position:absolute;
+    font-size:28px;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-15vh);
+        opacity:0;
     }
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container" id="main">
-    <h1>wanna travel Europe together someday?🤔</h1>
-    <div class="message" id="trickMessage">Try finding the REAL surprise button smarty😔</div>
 
-    <button id="yesBtn">Big YES😎</button>
-    <button id="noBtn">NO☹️</button>
+       <h1>Wanna Go Watch Spider-Man With Me? 🕷️🍿</h1>
+
+    <p>
+        Was Wondering..<br><br>
+        Spider-Mans always more fun with a good company(YOU).
+        <br><br>
+        So... would you mind watching it with me?😔
+    </p>
+
+    <div class="message" id="trickMessage">
+         😛alelele... wrong button find the right one smartyy
+    </div>
+
+    <button id="yesBtn">YES! 😼 </button>
+    <button id="noBtn">No ☹️</button>
+
 </div>
 
 <div class="celebration" id="celebrate">
-    <h2>HAPPY BIRTHDAY Munchkin!!!🫂💌</h2>
 
-    <div class="gift-box">
-        <video autoplay loop muted playsinline>
+    <h2>YAY!! A Spider-Man Date! 🕷️❤️</h2>
+
+    <p>
+       Popcorns on me bbg😉
+    </p>
+
+    <div class="movie-box">
+
+        <video id="spidermanVideo" autoplay muted playsinline>
             <source src="chroma-keyed-video.webm" type="video/webm">
         </video>
+
     </div>
+
 </div>
 
-<!-- Background Sound -->
-<video id="bgSound" style="display:none;" loop>
+<!-- Music -->
+<video id="bgSound" style="display:none;">
     <source src="cat.mp4" type="video/mp4">
 </video>
 
 <script>
-const noBtn = document.getElementById("noBtn");
+    const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const celebrate = document.getElementById("celebrate");
 const main = document.getElementById("main");
@@ -160,30 +211,30 @@ const trickMessage = document.getElementById("trickMessage");
 let attempts = 0;
 let fakeYesClicked = false;
 
-// Move NO button
+// Move the NO button
 function moveNoButton() {
+
     if (!fakeYesClicked) return;
 
     attempts++;
 
+    // After enough attempts, turn NO into YES
     if (attempts >= 8) {
-        noBtn.textContent = "YESS🫂";
-        noBtn.style.backgroundColor = "#ff6b81";
+
+        noBtn.textContent = "YES!💌 ";
+        noBtn.style.backgroundColor = "#e62429";
         noBtn.style.color = "white";
 
-        // STOP movement (fix for mobile)
         noBtn.removeEventListener("mouseover", moveNoButton);
         noBtn.removeEventListener("touchstart", handleTouch);
 
         return;
     }
 
-    const btnWidth = noBtn.offsetWidth;
-    const btnHeight = noBtn.offsetHeight;
-
     const padding = 20;
-    const maxX = window.innerWidth - btnWidth - padding;
-    const maxY = window.innerHeight - btnHeight - padding;
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
@@ -192,51 +243,95 @@ function moveNoButton() {
     noBtn.style.top = y + "px";
 }
 
-// Touch handler (NO preventDefault ❌)
 function handleTouch() {
     moveNoButton();
 }
 
-// Events
 noBtn.addEventListener("mouseover", moveNoButton);
 noBtn.addEventListener("touchstart", handleTouch);
 
-// Click when becomes YES
+// Fake YES button
+yesBtn.addEventListener("click", () => {
+
+    if (!fakeYesClicked) {
+
+        fakeYesClicked = true;
+
+        yesBtn.classList.add("hidden");
+
+        trickMessage.style.display = "block";
+    }
+
+});
+
+// Real YES button
 noBtn.addEventListener("click", () => {
+
     if (attempts >= 8) {
         showCelebration();
     }
-});
 
-// Fake YES first
-yesBtn.addEventListener("click", () => {
-    if (!fakeYesClicked) {
-        fakeYesClicked = true;
-        yesBtn.classList.add("hidden");
-        trickMessage.style.display = "block";
-    }
 });
 
 function showCelebration() {
+
     main.style.display = "none";
     celebrate.style.display = "block";
 
-    let sound = document.getElementById("bgSound");
+    // Play music
+    const sound = document.getElementById("bgSound");
+    sound.currentTime = 0;
     sound.volume = 0.5;
-    sound.play();
 
-    for (let i = 0; i < 60; i++) {
+    sound.play().catch(() => {});
+
+    // Force video to keep looping
+    const video = document.getElementById("spidermanVideo");
+
+    video.play().catch(() => {});
+
+    video.addEventListener("ended", () => {
+        video.currentTime = 0;
+        video.play();
+    });
+
+    // Floating Spider-Man emojis
+    const emojis = [
+        "🕷️",
+        "🕸️",
+        "❤️",
+        "🍿",
+        "🎬",
+        "✨",
+        "🥰"
+    ];
+
+    for (let i = 0; i < 90; i++) {
+
         let el = document.createElement("div");
+
         el.classList.add("float");
-        el.innerHTML = "🍰🩷😛";
+
+        el.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
         el.style.left = Math.random() * 100 + "vw";
-        el.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+        el.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        el.style.fontSize =
+            (Math.random() * 20 + 22) + "px";
+
         document.body.appendChild(el);
     }
 
     setTimeout(() => {
-        alert("Happiest Birthday 🥸🫶🏽! have the best day (you will cause im with you)");
-    }, 1000);
+
+        alert("Can't wait till july 30 😼");
+
+    }, 800);
+
 }
 </script>
 
