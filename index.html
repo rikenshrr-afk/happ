@@ -235,6 +235,10 @@ button{
 
     noBtn.addEventListener("touchstart", (e) => {
         e.preventDefault();
+        if (attempts >= 7) {
+            showCelebration();
+            return;
+        }
         moveNoButton();
     });
 
